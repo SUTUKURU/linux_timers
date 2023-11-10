@@ -91,7 +91,7 @@ void rt_dump_rt_table(rt_table_t *rt_table)
             rt_entry->gw_ip,
             rt_entry->oif,
             rt_entry->time_to_expire,
-            timer_get_time_remaining_in_mill_sec(rt_entry->exp_timer));
+            timer_get_remaining_time_in_msec(rt_entry->exp_timer));
     } ITERTAE_RT_TABLE_END(rt_tabl, rt_entry);
 }
 
