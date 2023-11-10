@@ -16,8 +16,8 @@ rt_add_new_rt_entry(rt_table_t *rt_table,
                     char mask,
                     char *gw_ip,
                     char *oif,
-                    void (*delete_cbk)(Timer_t*, void *)){
-
+                    void (*delete_cbk)(Timer_t*, void *))
+{
     rt_entry_t *head = NULL;
     rt_entry_t *rt_entry = NULL;
 
@@ -36,7 +36,7 @@ rt_add_new_rt_entry(rt_table_t *rt_table,
 
     rt_entry->time_to_expire = RT_TABLE_EXP_TIME;
 
-    rt_entry->exp_timer = setup_timer(delete_cbk,
+    rt_entry->exp_timer = initialize_timer(delete_cbk,
                                       rt_entry->time_to_expire * 1000,
                                       0,
                                       0,
